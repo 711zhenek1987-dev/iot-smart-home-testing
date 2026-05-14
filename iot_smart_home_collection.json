@@ -1,0 +1,97 @@
+{
+	"info": {
+		"name": "IoT Smart Home API Integration",
+		"schema": "getpostman.com"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "POST /api/auth/login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test_admin_0076\",\n    \"password\": \"T<tps!m1F8\"\n}"
+						},
+						"url": {
+							"raw": "217.199.216"
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Rooms Management",
+			"item": [
+				{
+					"name": "POST /api/rooms (Create Room)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"},
+							{"key": "Authorization", "value": "Bearer {{access_token}}"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Спальня\",\n    \"area\": 70,\n    \"description\": \"Основная мастер-спальня\"\n}"
+						},
+						"url": {
+							"raw": "217.199.216"
+						}
+					}
+				},
+				{
+					"name": "GET /api/rooms (Get All Rooms with Validation)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{"key": "Authorization", "value": "Bearer {{access_token}}"}
+						],
+						"url": {
+							"raw": "217.199.216"
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Devices & Cascading Logical Bugs",
+			"item": [
+				{
+					"name": "POST /api/devices (Add Device to Room)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"},
+							{"key": "Authorization", "value": "Bearer {{access_token}}"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Smart Lamp\",\n    \"room_id\": 101,\n    \"category\": \"lighting\"\n}"
+						},
+						"url": {
+							"raw": "217.199.216"
+						}
+					}
+				},
+				{
+					"name": "DELETE /api/rooms/{id} (Integrational Constraint Test)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{"key": "Authorization", "value": "Bearer {{access_token}}"}
+						],
+						"url": {
+							"raw": "217.199.216"
+						}
+					}
+				}
+			]
+		}
+	]
+}
